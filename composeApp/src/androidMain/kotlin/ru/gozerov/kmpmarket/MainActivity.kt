@@ -14,6 +14,7 @@ import navigation.navigationGraph
 import ru.alexgladkov.odyssey.compose.setup.OdysseyConfiguration
 import ru.alexgladkov.odyssey.compose.setup.setNavigationContent
 import ru.alexgladkov.odyssey.core.configuration.DisplayType
+import theme.KMPMarketTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,8 +27,10 @@ class MainActivity : ComponentActivity() {
                 backgroundColor = Color.White
             )
 
-            setNavigationContent(configuration) {
-                navigationGraph()
+            KMPMarketTheme {
+                setNavigationContent(configuration) {
+                    navigationGraph()
+                }
             }
         }
     }

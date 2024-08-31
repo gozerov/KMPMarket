@@ -12,13 +12,15 @@ import androidx.compose.ui.window.ComposeUIViewController
 import navigation.navigationGraph
 import ru.alexgladkov.odyssey.compose.setup.OdysseyConfiguration
 import ru.alexgladkov.odyssey.compose.setup.setNavigationContent
+import theme.KMPMarketTheme
 
 fun MainViewController() = ComposeUIViewController {
     SafeArea {
         val configuration = OdysseyConfiguration(backgroundColor = Color.White)
-
-        setNavigationContent(configuration) {
-            navigationGraph()
+        KMPMarketTheme {
+            setNavigationContent(configuration) {
+                navigationGraph()
+            }
         }
     }
 }

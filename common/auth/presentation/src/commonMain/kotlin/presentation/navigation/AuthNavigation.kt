@@ -8,7 +8,7 @@ import ru.alexgladkov.odyssey.compose.extensions.screen
 import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder
 
 fun RootComposeBuilder.authFlow() {
-    flow(AuthNavigation.flow) {
+    flow(AuthNavigation.FLOW) {
         screen(Screen.Login.route) {
             LoginScreen()
         }

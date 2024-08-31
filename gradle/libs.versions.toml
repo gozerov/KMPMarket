@@ -36,7 +36,6 @@ ksp-gradle = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.
 libres-gradle = { module = "io.github.skeptick.libres:gradle-plugin", version.ref = "libres" }
 compose-compiler-gradle = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 
-
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -72,6 +71,7 @@ room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 sqlite-driver = { module = "androidx.sqlite:sqlite", version.ref = "sqlite" }
 sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
+libres-compose = { module = "io.github.skeptick.libres:libres-compose", version.ref = "libres"}
 
 [plugins]
 
