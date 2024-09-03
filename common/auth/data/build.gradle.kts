@@ -9,7 +9,7 @@ kotlin {
         commonMain {
             dependencies {
                 api(project(":common:auth:domain"))
-                implementation(Libraries.Kodein.kodeinDI)
+                implementation(libs.kodein)
             }
         }
     }

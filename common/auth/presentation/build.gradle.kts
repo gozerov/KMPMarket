@@ -6,7 +6,7 @@ plugins {
 }
 
 libres {
-    generateNamedArguments = true // false by default
+    generateNamedArguments = true
     baseLocaleLanguageCode = "ru"
 }
 
@@ -14,6 +14,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":common:market:api"))
                 implementation(project(":common:auth:domain"))
                 implementation(project(":common:core"))
 
