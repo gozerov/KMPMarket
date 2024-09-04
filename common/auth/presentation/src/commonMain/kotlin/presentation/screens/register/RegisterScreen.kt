@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import api.navigation.MarketNavigation
+import navigation.Screen
 import ru.alexgladkov.odyssey.compose.extensions.push
 import ru.alexgladkov.odyssey.compose.local.LocalRootController
 import ru.gozerov.kmpmarket.strings.ResStrings
@@ -86,7 +87,7 @@ fun RegisterScreen() {
                     contentColor = KMPMarketTheme.colors.text
                 ),
                 onClick = {
-                    parentController?.push(MarketNavigation.FLOW)
+                    parentController?.launch(Screen.Tabs.route)
                 }
             ) {
                 Text(text = ResStrings.sign_up, color = KMPMarketTheme.colors.text)

@@ -94,7 +94,7 @@ fun LoginScreen() {
                         contentColor = KMPMarketTheme.colors.text
                     ),
                     onClick = {
-                        parentController?.launch(MarketNavigation.FLOW)
+                        parentController?.launch(Screen.Tabs.route)
                     }
                 ) {
                     Text(text = ResStrings.sign_in, color = KMPMarketTheme.colors.text)

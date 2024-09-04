@@ -4,6 +4,8 @@ sealed class Screen(
     val route: String
 ) {
 
+    data object Tabs : Screen("tabs")
+
     sealed class Login(featureRoute: String) : Screen(featureRoute) {
 
         data object Login : Screen.Login("login")
@@ -15,6 +17,12 @@ sealed class Screen(
     sealed class Market(featureRoute: String) : Screen(featureRoute) {
 
         data object GoodsList : Market("goodsList")
+
+    }
+
+    sealed class Users(featureRoute: String) : Screen(featureRoute) {
+
+        data object UserList: Users("userList")
 
     }
 
