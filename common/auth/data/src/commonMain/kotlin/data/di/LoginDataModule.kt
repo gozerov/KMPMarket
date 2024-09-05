@@ -8,7 +8,7 @@ import org.kodein.di.DI
 import org.kodein.di.bindSingleton
 import org.kodein.di.instance
 
-val loginModule = DI.Module("loginModule") {
-    bindSingleton<LoginRemote> { LoginRemoteImpl() }
+val loginDataModule = DI.Module("loginDataModule") {
+    bindSingleton<LoginRemote> { LoginRemoteImpl(instance()) }
     bindSingleton<LoginRepository> { LoginRepositoryImpl(instance()) }
 }

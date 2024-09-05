@@ -1,5 +1,7 @@
-import data.di.loginModule
+import data.di.loginDataModule
 import di.Injector
+import di.coreModule
+import domain.di.loginDomainModule
 import org.kodein.di.DI
 import org.kodein.di.bindSingleton
 import org.kodein.di.direct
@@ -20,7 +22,9 @@ object PlatformSDK {
             DI {
                 importAll(
                     umbrellaModule,
-                    loginModule
+                    coreModule,
+                    loginDomainModule,
+                    loginDataModule
                 )
             }.direct
         )

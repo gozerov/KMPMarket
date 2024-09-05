@@ -1,10 +1,13 @@
 package di
 
-import data.di.loginModule
+import data.di.loginDataModule
+import domain.di.loginDomainModule
 import org.kodein.di.DI
 
 val umbrellaModule = DI.Module("umbrellaModule") {
     importAll(
-        loginModule
+        coreModule,
+        loginDataModule,
+        loginDomainModule
     )
 }

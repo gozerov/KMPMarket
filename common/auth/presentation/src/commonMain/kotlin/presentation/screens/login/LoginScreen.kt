@@ -17,16 +17,15 @@ import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import api.navigation.MarketNavigation
 import com.adeo.kviewmodel.odyssey.StoredViewModel
 import navigation.Screen
+import presentation.screens.login.models.LoginAction
 import presentation.screens.login.models.LoginEvent
 import ru.alexgladkov.odyssey.compose.extensions.push
 import ru.alexgladkov.odyssey.compose.local.LocalRootController
@@ -41,6 +40,16 @@ fun LoginScreen() {
     StoredViewModel({ LoginViewModel() }) { viewModel ->
 
         val viewState = viewModel.viewStates().collectAsState().value
+        val viewAction = viewModel.viewActions().collectAsState(LoginAction.None).value
+
+        when (viewAction) {
+            is LoginAction.PerformNavigationToRegister -> {}
+            is LoginAction.PerformNavigationToFeature -> {
+                parentController?.launch(Screen.Tabs.route)
+            }
+
+            else -> {}
+        }
 
         Scaffold(
             backgroundColor = KMPMarketTheme.colors.primaryBackground
@@ -94,7 +103,7 @@ fun LoginScreen() {
                         contentColor = KMPMarketTheme.colors.text
                     ),
                     onClick = {
-                        parentController?.launch(Screen.Tabs.route)
+                        viewModel.obtainEvent(LoginEvent.NavigateToFeature)
                     }
                 ) {
                     Text(text = ResStrings.sign_in, color = KMPMarketTheme.colors.text)

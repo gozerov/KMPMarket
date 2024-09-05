@@ -16,8 +16,8 @@ import theme.KMPMarketTheme
 
 fun MainViewController() = ComposeUIViewController {
     SafeArea {
-        val configuration = OdysseyConfiguration(backgroundColor = Color.White)
         KMPMarketTheme {
+        val configuration = OdysseyConfiguration(backgroundColor = KMPMarketTheme.colors.primaryBackground)
             setNavigationContent(configuration) {
                 navigationGraph()
             }
