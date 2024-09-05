@@ -7,8 +7,9 @@ import kotlinx.coroutines.launch
 import presentation.screens.login.models.LoginAction
 import presentation.screens.login.models.LoginEvent
 import presentation.screens.login.models.LoginState
+import utils.runCatchingNonCancellation
 
-class LoginViewModel: BaseSharedViewModel<LoginState, LoginAction, LoginEvent>(LoginState()) {
+class LoginViewModel : BaseSharedViewModel<LoginState, LoginAction, LoginEvent>(LoginState()) {
 
     private val loginUseCase: LoginUseCase = Injector.instance()
 
@@ -24,11 +25,24 @@ class LoginViewModel: BaseSharedViewModel<LoginState, LoginAction, LoginEvent>(L
                 }
 
                 is LoginEvent.NavigateToFeature -> {
-                    loginUseCase.invoke(
-                        email = viewState.emailState,
-                        password = viewState.passwordState
-                    )
-                    viewAction = LoginAction.PerformNavigationToFeature
+                    runCatchingNonCancellation {
+                        loginUseCase.invoke(
+                            email = viewState.emailState,
+                            password = viewState.passwordState
+                        )
+                    }
+                        .onSuccess { result ->
+                            result
+                                .onSuccess {
+                                    viewAction = LoginAction.PerformNavigationToFeature
+                                }
+                                .onFailure { e ->
+                                    viewAction = LoginAction.ShowError(e.message.toString())
+                                }
+                        }
+                        .onFailure { e ->
+                            viewAction = LoginAction.ShowError(e.message.toString())
+                        }
                 }
 
                 is LoginEvent.NavigateToRegister -> {

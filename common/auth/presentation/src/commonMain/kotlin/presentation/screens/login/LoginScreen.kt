@@ -12,18 +12,22 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Scaffold
+import androidx.compose.material.SnackbarHost
+import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.adeo.kviewmodel.odyssey.StoredViewModel
+import kotlinx.coroutines.launch
 import navigation.Screen
 import presentation.screens.login.models.LoginAction
 import presentation.screens.login.models.LoginEvent
@@ -36,6 +40,8 @@ import theme.KMPMarketTheme
 fun LoginScreen() {
     val controller = LocalRootController.current
     val parentController = LocalRootController.current.parentRootController
+    val snackbarHostState = remember { SnackbarHostState() }
+    val coroutineScope = rememberCoroutineScope()
 
     StoredViewModel({ LoginViewModel() }) { viewModel ->
 
@@ -48,11 +54,18 @@ fun LoginScreen() {
                 parentController?.launch(Screen.Tabs.route)
             }
 
+            is LoginAction.ShowError -> {
+                coroutineScope.launch {
+                    snackbarHostState.showSnackbar(viewAction.message)
+                }
+            }
+
             else -> {}
         }
 
         Scaffold(
-            backgroundColor = KMPMarketTheme.colors.primaryBackground
+            backgroundColor = KMPMarketTheme.colors.primaryBackground,
+            snackbarHost = { SnackbarHost(snackbarHostState) }
         ) {
             Column(
                 modifier = Modifier.fillMaxSize(),

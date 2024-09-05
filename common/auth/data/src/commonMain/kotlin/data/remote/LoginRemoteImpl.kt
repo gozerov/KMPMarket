@@ -8,25 +8,44 @@ import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
-import io.ktor.util.InternalAPI
+import io.ktor.http.isSuccess
 import ktor.KtorService
 
 class LoginRemoteImpl(
     private val ktorService: KtorService
 ) : LoginRemote {
 
-    override suspend fun login(email: String, password: String): Boolean {
+    override suspend fun login(email: String, password: String): Result<String> {
         val response = ktorService.client.post(urlString = BASE_URL) {
             header(HttpHeaders.ContentType, ContentType.Application.Json)
             setBody(LoginRequestBody(email, password))
         }
-        val authData: AuthResponseBody = response.body()
-        println(authData)
-        return true
+        try {
+            println(response.status.value)
+            if (response.status.value >= 400)
+                return Result.failure(Exception(response.status.description))
+
+            val authData: AuthResponseBody = response.body()
+            return Result.success(authData.token)
+        } catch (e: Exception) {
+            return Result.failure(e)
+        }
     }
 
-    override suspend fun register(email: String, password: String): Boolean {
-        return true
+    override suspend fun register(email: String, password: String): Result<String> {
+        val response = ktorService.client.post(urlString = BASE_URL) {
+            header(HttpHeaders.ContentType, ContentType.Application.Json)
+            setBody(LoginRequestBody(email, password))
+        }
+        try {
+            if (response.status.value >= 400)
+                return Result.failure(Exception(response.status.description))
+
+            val authData: AuthResponseBody = response.body()
+            return Result.success(authData.token)
+        } catch (e: Exception) {
+            return Result.failure(e)
+        }
     }
 
     companion object {
