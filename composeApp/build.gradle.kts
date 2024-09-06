@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id(libs.plugins.kotlinMultiplatform.get().pluginId)
@@ -17,7 +16,7 @@ kotlin {
     androidTarget {
 
     }
-    cocoapods{
+    cocoapods {
         summary = "Sample KMP Project"
         homepage = "https://github.com/sample/KMP-Project"
 
@@ -69,7 +68,7 @@ kotlin {
                 implementation(libs.odyssey.core)
                 implementation(libs.odyssey.compose)
 
-                implementation(libs.koin.core)
+                implementation(libs.kodein)
 
                 implementation(libs.kviewmodel.core)
                 implementation(libs.kviewmodel.compose)

@@ -41,6 +41,7 @@ class LoginViewModel : BaseSharedViewModel<LoginState, LoginAction, LoginEvent>(
                                 }
                         }
                         .onFailure { e ->
+                            println(e.message.toString())
                             viewAction = LoginAction.ShowError(e.message.toString())
                         }
                 }

@@ -11,6 +11,7 @@ class KMPMarketApp : Application() {
 
         initPlatformSDK()
     }
+
 }
 
 fun KMPMarketApp.initPlatformSDK() =

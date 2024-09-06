@@ -8,14 +8,13 @@ import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
-import io.ktor.http.isSuccess
 import ktor.KtorService
 
 class LoginRemoteImpl(
     private val ktorService: KtorService
 ) : LoginRemote {
 
-    override suspend fun login(email: String, password: String): Result<String> {
+    override suspend fun login(email: String, password: String): Result<AuthResponseBody> {
         val response = ktorService.client.post(urlString = BASE_URL) {
             header(HttpHeaders.ContentType, ContentType.Application.Json)
             setBody(LoginRequestBody(email, password))
@@ -26,13 +25,13 @@ class LoginRemoteImpl(
                 return Result.failure(Exception(response.status.description))
 
             val authData: AuthResponseBody = response.body()
-            return Result.success(authData.token)
+            return Result.success(authData)
         } catch (e: Exception) {
             return Result.failure(e)
         }
     }
 
-    override suspend fun register(email: String, password: String): Result<String> {
+    override suspend fun register(email: String, password: String): Result<AuthResponseBody> {
         val response = ktorService.client.post(urlString = BASE_URL) {
             header(HttpHeaders.ContentType, ContentType.Application.Json)
             setBody(LoginRequestBody(email, password))
@@ -42,7 +41,7 @@ class LoginRemoteImpl(
                 return Result.failure(Exception(response.status.description))
 
             val authData: AuthResponseBody = response.body()
-            return Result.success(authData.token)
+            return Result.success(authData)
         } catch (e: Exception) {
             return Result.failure(e)
         }

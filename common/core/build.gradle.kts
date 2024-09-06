@@ -22,6 +22,9 @@ kotlin {
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.logging)
                 implementation(libs.ktor.serialization.kotlinx.json)
+
+               // implementation(libs.androidx.datastore)
+                implementation(libs.androidx.datastore.preferences)
             }
         }
     }
