@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,6 +19,7 @@ import coil3.compose.AsyncImage
 import domain.models.Product
 import theme.KMPMarketTheme
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ProductCard(
     product: Product,
@@ -26,7 +28,8 @@ fun ProductCard(
     Card(
         modifier = Modifier.padding(horizontal = 4.dp).size(180.dp),
         backgroundColor = KMPMarketTheme.colors.secondary,
-        shape = RoundedCornerShape(16.dp)
+        shape = RoundedCornerShape(16.dp),
+        onClick = onClick
     ) {
         Column {
             AsyncImage(
