@@ -2,6 +2,13 @@ plugins {
     id("android-setup")
     id("multiplatform-setup")
     id("compose-multiplatform-setup")
+    id("io.github.skeptick.libres")
+}
+
+compose.resources {
+    publicResClass = false
+    packageOfResClass = "ru.gozerov.kmpmarket.common.umbrella-compose.resources"
+    generateResClass = auto
 }
 
 kotlin {
@@ -19,6 +26,9 @@ kotlin {
                 implementation(libs.kodein)
                 implementation(libs.odyssey.core)
                 implementation(libs.odyssey.compose)
+
+                implementation(compose.ui)
+                implementation(compose.components.resources)
 
                 implementation(libs.kviewmodel.core)
                 implementation(libs.kviewmodel.compose)

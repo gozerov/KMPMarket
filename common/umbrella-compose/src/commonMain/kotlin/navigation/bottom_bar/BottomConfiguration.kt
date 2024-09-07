@@ -13,9 +13,9 @@ class BottomConfiguration : TabsNavModel<BottomNavConfiguration>() {
         get() {
             return BottomNavConfiguration(
                 elevation = 0.dp,
-                backgroundColor = KMPMarketTheme.colors.secondaryBackground,
+                backgroundColor = KMPMarketTheme.colors.primaryBackground,
                 selectedColor = KMPMarketTheme.colors.accent,
-                unselectedColor = KMPMarketTheme.colors.primaryBackground
+                unselectedColor = KMPMarketTheme.colors.text
             )
         }
 
