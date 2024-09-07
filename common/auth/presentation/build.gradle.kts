@@ -14,7 +14,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":common:market:api"))
+                implementation(project(":common:market:domain"))
                 implementation(project(":common:auth:domain"))
                 implementation(project(":common:core"))
 

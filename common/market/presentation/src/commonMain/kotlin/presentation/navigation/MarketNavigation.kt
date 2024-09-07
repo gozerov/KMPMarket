@@ -1,6 +1,6 @@
 package presentation.navigation
 
-import api.navigation.MarketNavigation
+import domain.navigation.MarketNavigation
 import navigation.Screen
 import presentation.screens.list.GoodsListScreen
 import ru.alexgladkov.odyssey.compose.extensions.flow

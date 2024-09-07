@@ -13,7 +13,8 @@ kotlin {
                 implementation(project(":common:auth:domain"))
                 implementation(project(":common:auth:presentation"))
                 implementation(project(":common:market:presentation"))
-                api(project(":common:market:api"))
+                implementation(project(":common:market:domain"))
+                implementation(project(":common:market:data"))
 
                 implementation(libs.kodein)
                 implementation(libs.odyssey.core)

@@ -1,4 +1,4 @@
-package api.navigation
+package domain.navigation
 
 object MarketNavigation {
 

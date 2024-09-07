@@ -1,7 +1,7 @@
 import data.di.loginDataModule
+import data.di.marketDataModule
 import di.Injector
 import di.coreModule
-import domain.di.loginDomainModule
 import org.kodein.di.DI
 import org.kodein.di.bindSingleton
 import org.kodein.di.direct
@@ -23,8 +23,8 @@ object PlatformSDK {
                 importAll(
                     umbrellaModule,
                     coreModule,
-                    loginDomainModule,
-                    loginDataModule
+                    loginDataModule,
+                    marketDataModule
                 )
             }.direct
         )
