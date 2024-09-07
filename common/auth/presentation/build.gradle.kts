@@ -6,8 +6,8 @@ plugins {
 }
 
 libres {
+    generatedClassName = "AuthRes"
     generateNamedArguments = true
-    baseLocaleLanguageCode = "ru"
 }
 
 kotlin {
@@ -31,4 +31,8 @@ kotlin {
             }
         }
     }
+}
+
+android {
+    namespace = "ru.gozerov.kmpmarket.auth.presentation"
 }

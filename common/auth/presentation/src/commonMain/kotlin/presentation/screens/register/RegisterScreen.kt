@@ -30,7 +30,7 @@ import navigation.Screen
 import presentation.screens.register.models.RegisterAction
 import presentation.screens.register.models.RegisterEvent
 import ru.alexgladkov.odyssey.compose.local.LocalRootController
-import ru.gozerov.kmpmarket.strings.ResStrings
+import ru.gozerov.kmpmarket.auth.presentation.strings.AuthResStrings
 import theme.KMPMarketTheme
 
 @Composable
@@ -57,7 +57,7 @@ fun RegisterScreen() {
                 }
             }
 
-            else -> { }
+            else -> {}
         }
 
         Scaffold(
@@ -70,7 +70,7 @@ fun RegisterScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = ResStrings.registration,
+                    text = AuthResStrings.registration,
                     color = KMPMarketTheme.colors.text,
                     fontWeight = FontWeight.Medium,
                     fontSize = 24.sp
@@ -116,7 +116,7 @@ fun RegisterScreen() {
                         viewModel.obtainEvent(RegisterEvent.NavigateToTabs)
                     }
                 ) {
-                    Text(text = ResStrings.sign_up, color = KMPMarketTheme.colors.text)
+                    Text(text = AuthResStrings.sign_up, color = KMPMarketTheme.colors.text)
                 }
             }
         }

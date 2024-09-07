@@ -16,7 +16,9 @@ sealed class Screen(
 
     sealed class Market(featureRoute: String) : Screen(featureRoute) {
 
-        data object GoodsList : Market("goodsList")
+        data object ProductList : Market("productList")
+
+        data object ProductDetails : Market("productDetails")
 
     }
 

@@ -8,7 +8,6 @@ plugins {
 libres {
     generatedClassName = "MarketRes"
     generateNamedArguments = true
-    baseLocaleLanguageCode = "ru"
 }
 
 kotlin {
@@ -29,7 +28,15 @@ kotlin {
                 implementation(libs.kviewmodel.odyssey)
 
                 implementation(libs.libres.compose)
+                implementation(libs.coil.compose)
+                implementation(libs.coil.compose.core)
+                implementation(libs.coil.mp)
+                implementation(libs.coil.network.ktor)
             }
         }
     }
+}
+
+android {
+    namespace = "ru.gozerov.kmpmarket.market.presentation"
 }

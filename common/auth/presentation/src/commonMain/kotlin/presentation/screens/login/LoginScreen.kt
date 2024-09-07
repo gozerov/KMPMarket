@@ -33,7 +33,7 @@ import presentation.screens.login.models.LoginAction
 import presentation.screens.login.models.LoginEvent
 import ru.alexgladkov.odyssey.compose.extensions.push
 import ru.alexgladkov.odyssey.compose.local.LocalRootController
-import ru.gozerov.kmpmarket.strings.ResStrings
+import ru.gozerov.kmpmarket.auth.presentation.strings.AuthResStrings
 import theme.KMPMarketTheme
 
 @Composable
@@ -73,7 +73,7 @@ fun LoginScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = ResStrings.login,
+                    text = AuthResStrings.login,
                     color = KMPMarketTheme.colors.text,
                     fontWeight = FontWeight.Medium,
                     fontSize = 24.sp
@@ -119,7 +119,7 @@ fun LoginScreen() {
                         viewModel.obtainEvent(LoginEvent.NavigateToFeature)
                     }
                 ) {
-                    Text(text = ResStrings.sign_in, color = KMPMarketTheme.colors.text)
+                    Text(text = AuthResStrings.sign_in, color = KMPMarketTheme.colors.text)
                 }
                 Spacer(modifier = Modifier.height(32.dp))
                 Text(
@@ -129,7 +129,7 @@ fun LoginScreen() {
                     ) {
                         controller.push(Screen.Login.Register.route)
                     },
-                    text = ResStrings.sign_up,
+                    text = AuthResStrings.sign_up,
                     color = KMPMarketTheme.colors.accent,
                     fontWeight = FontWeight.Bold
                 )

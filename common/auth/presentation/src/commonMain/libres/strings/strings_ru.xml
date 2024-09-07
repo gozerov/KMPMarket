@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="login">Вход</string>
-    <string name="sign_in">Войти</string>
-    <string name="registration">Регистрация</string>
-    <string name="sign_up">Зарегистрироваться</string>
-</resources>
