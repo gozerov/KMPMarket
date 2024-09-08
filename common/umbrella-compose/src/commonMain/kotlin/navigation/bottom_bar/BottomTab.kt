@@ -3,6 +3,7 @@ package navigation.bottom_bar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
 import ru.alexgladkov.odyssey.compose.navigation.bottom_bar_navigation.TabConfiguration
@@ -20,7 +21,8 @@ sealed interface BottomTab {
                 return TabConfiguration(
                     title = "Market",
                     selectedIcon = painterResource(Res.drawable.ic_market),
-                    titleStyle = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.Medium)
+                    unselectedIcon = painterResource(Res.drawable.ic_market),
+                    titleStyle = TextStyle(fontSize = 14.sp, fontWeight = FontWeight.Medium, textAlign = TextAlign.Center)
                 )
             }
     }
@@ -32,7 +34,8 @@ sealed interface BottomTab {
                 return TabConfiguration(
                     title = "Users",
                     selectedIcon = painterResource(Res.drawable.ic_users),
-                    titleStyle = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.Medium)
+                    unselectedIcon = painterResource(Res.drawable.ic_users),
+                    titleStyle = TextStyle(fontSize = 14.sp, fontWeight = FontWeight.Medium)
                 )
             }
     }
