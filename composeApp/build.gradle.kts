@@ -56,6 +56,10 @@ kotlin {
                 implementation(libs.androidx.lifecycle.viewmodel)
                 implementation(libs.androidx.lifecycle.runtime.compose)
 
+                implementation(libs.cupertino)
+                implementation(libs.cupertino.adaptive)
+                implementation(libs.cupertino.native)
+
                 implementation(libs.ktor.core)
                 implementation(libs.ktor.logging)
                 implementation(libs.ktor.client.content.negotiation)

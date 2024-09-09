@@ -26,6 +26,7 @@ sqlite = "2.5.0-alpha06"
 coil3 = "3.0.0-alpha06"
 kodein = "7.22.0"
 datastore = "1.1.1"
+cupertino = "0.1.0-alpha04"
 
 [libraries]
 
@@ -77,6 +78,9 @@ libres-compose = { module = "io.github.skeptick.libres:libres-compose", version.
 kodein = { module = "org.kodein.di:kodein-di", version.ref = "kodein" }
 androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+cupertino = { module = "io.github.alexzhirkevich:cupertino", version.ref = "cupertino" }
+cupertino-adaptive = { module = "io.github.alexzhirkevich:cupertino-adaptive", version.ref = "cupertino" }
+cupertino-native = { module = "io.github.alexzhirkevich:cupertino-native", version.ref = "cupertino" }
 
 [plugins]
 

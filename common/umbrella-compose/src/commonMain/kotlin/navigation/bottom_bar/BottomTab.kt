@@ -20,8 +20,8 @@ sealed interface BottomTab {
             get() {
                 return TabConfiguration(
                     title = "Market",
-                    selectedIcon = painterResource(Res.drawable.ic_market),
-                    unselectedIcon = painterResource(Res.drawable.ic_market),
+                    //selectedIcon = painterResource(Res.drawable.ic_market),
+                    //unselectedIcon = painterResource(Res.drawable.ic_market),
                     titleStyle = TextStyle(fontSize = 14.sp, fontWeight = FontWeight.Medium, textAlign = TextAlign.Center)
                 )
             }
@@ -33,8 +33,8 @@ sealed interface BottomTab {
             get() {
                 return TabConfiguration(
                     title = "Users",
-                    selectedIcon = painterResource(Res.drawable.ic_users),
-                    unselectedIcon = painterResource(Res.drawable.ic_users),
+                    //selectedIcon = painterResource(Res.drawable.ic_users),
+                    //unselectedIcon = painterResource(Res.drawable.ic_users),
                     titleStyle = TextStyle(fontSize = 14.sp, fontWeight = FontWeight.Medium)
                 )
             }

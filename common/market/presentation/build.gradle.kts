@@ -23,6 +23,10 @@ kotlin {
                 implementation(libs.odyssey.core)
                 implementation(libs.odyssey.compose)
 
+                implementation(libs.cupertino)
+                implementation(libs.cupertino.adaptive)
+                implementation(libs.cupertino.native)
+
                 implementation(libs.kviewmodel.core)
                 implementation(libs.kviewmodel.compose)
                 implementation(libs.kviewmodel.odyssey)
