@@ -22,6 +22,10 @@ kotlin {
                 implementation(project(":common:market:presentation"))
                 implementation(project(":common:market:domain"))
                 implementation(project(":common:market:data"))
+                implementation(project(":common:users:presentation"))
+                implementation(project(":common:users:domain"))
+                implementation(project(":common:users:data"))
+
 
                 implementation(libs.kodein)
                 implementation(libs.odyssey.core)

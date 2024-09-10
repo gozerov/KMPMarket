@@ -6,7 +6,7 @@ plugins {
 }
 
 libres {
-    generatedClassName = "MarketRes"
+    generatedClassName = "UsersRes"
     generateNamedArguments = true
 }
 
@@ -14,7 +14,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":common:market:domain"))
+                implementation(project(":common:users:domain"))
                 implementation(project(":common:core"))
 
                 implementation(compose.runtime)
@@ -41,5 +41,5 @@ kotlin {
 }
 
 android {
-    namespace = "ru.gozerov.kmpmarket.market.presentation"
+    namespace = "ru.gozerov.kmpmarket.users.presentation"
 }

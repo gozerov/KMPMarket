@@ -2,9 +2,9 @@ package navigation
 
 import navigation.bottom_bar.BottomConfiguration
 import navigation.bottom_bar.BottomTab
-import presentation.navigation.authFlow
 import presentation.navigation.marketFlow
 import presentation.screens.list.ProductListScreen
+import presentation.screens.list.UserListScreen
 import ru.alexgladkov.odyssey.compose.extensions.bottomNavigation
 import ru.alexgladkov.odyssey.compose.extensions.screen
 import ru.alexgladkov.odyssey.compose.extensions.tab
@@ -20,7 +20,7 @@ fun RootComposeBuilder.navigationGraph() {
         }
         tab(tabItem = BottomTab.UsersTab) {
             screen(Screen.Users.UserList.route) {
-                //  UserListScreen()
+                UserListScreen()
             }
         }
     }

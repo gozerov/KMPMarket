@@ -1,5 +1,6 @@
 import data.di.loginDataModule
 import data.di.marketDataModule
+import data.di.usersModule
 import di.Injector
 import di.coreModule
 import org.kodein.di.DI
@@ -24,7 +25,8 @@ object PlatformSDK {
                     umbrellaModule,
                     coreModule,
                     loginDataModule,
-                    marketDataModule
+                    marketDataModule,
+                    usersModule
                 )
             }.direct
         )
