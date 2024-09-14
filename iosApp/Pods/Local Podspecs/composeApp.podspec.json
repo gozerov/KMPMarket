@@ -8,14 +8,14 @@
   "authors": "",
   "license": "",
   "summary": "Sample KMP Project",
-  "vendored_frameworks": "build/cocoapods/framework/ComposeApp.framework",
+  "vendored_frameworks": "build/cocoapods/framework/composeApp.framework",
   "libraries": "c++",
   "platforms": {
-    "ios": "15.1"
+    "ios": "17.0"
   },
   "pod_target_xcconfig": {
     "KOTLIN_PROJECT_PATH": ":composeApp",
-    "PRODUCT_MODULE_NAME": "ComposeApp"
+    "PRODUCT_MODULE_NAME": "composeApp"
   },
   "script_phases": [
     {

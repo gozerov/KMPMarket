@@ -1,6 +1,6 @@
 package presentation.screens.details
 
-import com.adeo.kviewmodel.BaseSharedViewModel
+import androidx.lifecycle.viewModelScope
 import di.Injector
 import domain.usecases.GetProductDetailsUseCase
 import kotlinx.coroutines.launch
@@ -8,9 +8,10 @@ import presentation.screens.details.models.ProductDetailsAction
 import presentation.screens.details.models.ProductDetailsEvent
 import presentation.screens.details.models.ProductDetailsState
 import utils.runCatchingNonCancellation
+import viewmodel.BaseViewModel
 
 class ProductDetailsViewModel :
-    BaseSharedViewModel<ProductDetailsState, ProductDetailsAction, ProductDetailsEvent>(
+    BaseViewModel<ProductDetailsState, ProductDetailsAction, ProductDetailsEvent>(
         ProductDetailsState()
     ) {
 

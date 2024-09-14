@@ -20,11 +20,11 @@ kotlin {
         summary = "Sample KMP Project"
         homepage = "https://github.com/sample/KMP-Project"
 
-        ios.deploymentTarget = "15.1"
+        ios.deploymentTarget = "17.0"
 
         podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "ComposeApp"
+            baseName = "composeApp"
             isStatic = true
             @OptIn(ExperimentalKotlinGradlePluginApi::class)
             transitiveExport = false
@@ -74,9 +74,7 @@ kotlin {
 
                 implementation(libs.kodein)
 
-                implementation(libs.kviewmodel.core)
-                implementation(libs.kviewmodel.compose)
-                implementation(libs.kviewmodel.odyssey)
+                implementation(libs.viewmodel)
 
                 implementation(libs.sqlite.driver)
                 implementation(libs.sqlite.bundled)

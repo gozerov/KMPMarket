@@ -34,9 +34,7 @@ kotlin {
                 implementation(compose.ui)
                 implementation(compose.components.resources)
 
-                implementation(libs.kviewmodel.core)
-                implementation(libs.kviewmodel.compose)
-                implementation(libs.kviewmodel.odyssey)
+                implementation(libs.viewmodel)
             }
         }
         androidMain {

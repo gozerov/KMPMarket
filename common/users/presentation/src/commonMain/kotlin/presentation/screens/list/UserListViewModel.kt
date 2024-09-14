@@ -1,6 +1,6 @@
 package presentation.screens.list
 
-import com.adeo.kviewmodel.BaseSharedViewModel
+import androidx.lifecycle.viewModelScope
 import di.Injector
 import domain.usecases.GetUsersUseCase
 import kotlinx.coroutines.launch
@@ -8,8 +8,9 @@ import presentation.screens.list.models.UserListAction
 import presentation.screens.list.models.UserListEvent
 import presentation.screens.list.models.UserListState
 import utils.runCatchingNonCancellation
+import viewmodel.BaseViewModel
 
-class UserListViewModel : BaseSharedViewModel<UserListState, UserListAction, UserListEvent>(
+class UserListViewModel : BaseViewModel<UserListState, UserListAction, UserListEvent>(
     UserListState()
 ) {
 

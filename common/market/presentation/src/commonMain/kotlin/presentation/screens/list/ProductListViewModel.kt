@@ -1,6 +1,6 @@
 package presentation.screens.list
 
-import com.adeo.kviewmodel.BaseSharedViewModel
+import androidx.lifecycle.viewModelScope
 import di.Injector
 import domain.usecases.GetProductsUseCase
 import kotlinx.coroutines.launch
@@ -8,9 +8,10 @@ import presentation.screens.list.models.ProductListAction
 import presentation.screens.list.models.ProductListEvent
 import presentation.screens.list.models.ProductListState
 import utils.runCatchingNonCancellation
+import viewmodel.BaseViewModel
 
 class ProductListViewModel :
-    BaseSharedViewModel<ProductListState, ProductListAction, ProductListEvent>(ProductListState()) {
+    BaseViewModel<ProductListState, ProductListAction, ProductListEvent>(ProductListState()) {
 
     private val getProductsUseCase: GetProductsUseCase = Injector.instance()
 

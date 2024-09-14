@@ -23,9 +23,7 @@ kotlin {
                 implementation(libs.odyssey.core)
                 implementation(libs.odyssey.compose)
 
-                implementation(libs.kviewmodel.core)
-                implementation(libs.kviewmodel.compose)
-                implementation(libs.kviewmodel.odyssey)
+                implementation(libs.viewmodel)
 
                 implementation(libs.libres.compose)
             }

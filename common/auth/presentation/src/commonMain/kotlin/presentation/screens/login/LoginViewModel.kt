@@ -1,6 +1,6 @@
 package presentation.screens.login
 
-import com.adeo.kviewmodel.BaseSharedViewModel
+import androidx.lifecycle.viewModelScope
 import di.Injector
 import domain.usecases.LoginUseCase
 import kotlinx.coroutines.launch
@@ -8,8 +8,9 @@ import presentation.screens.login.models.LoginAction
 import presentation.screens.login.models.LoginEvent
 import presentation.screens.login.models.LoginState
 import utils.runCatchingNonCancellation
+import viewmodel.BaseViewModel
 
-class LoginViewModel : BaseSharedViewModel<LoginState, LoginAction, LoginEvent>(LoginState()) {
+class LoginViewModel : BaseViewModel<LoginState, LoginAction, LoginEvent>(LoginState()) {
 
     private val loginUseCase: LoginUseCase = Injector.instance()
 

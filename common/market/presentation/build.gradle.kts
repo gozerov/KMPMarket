@@ -26,9 +26,7 @@ kotlin {
                 implementation(libs.cupertino.adaptive)
                 implementation(libs.cupertino.native)
 
-                implementation(libs.kviewmodel.core)
-                implementation(libs.kviewmodel.compose)
-                implementation(libs.kviewmodel.odyssey)
+                implementation(libs.viewmodel)
 
                 implementation(libs.libres.compose)
                 implementation(libs.coil.compose)
