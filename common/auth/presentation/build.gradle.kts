@@ -20,8 +20,7 @@ kotlin {
 
                 implementation(compose.runtime)
 
-                implementation(libs.odyssey.core)
-                implementation(libs.odyssey.compose)
+                implementation(libs.navigation)
 
                 implementation(libs.viewmodel)
 

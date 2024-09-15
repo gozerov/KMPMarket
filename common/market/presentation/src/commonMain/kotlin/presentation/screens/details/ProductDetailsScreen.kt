@@ -13,20 +13,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import coil3.compose.AsyncImage
 import kotlinx.coroutines.launch
 import presentation.screens.details.models.ProductDetailsAction
 import presentation.screens.details.models.ProductDetailsEvent
-import ru.alexgladkov.odyssey.compose.local.LocalRootController
 import theme.KMPMarketTheme
 
 @Composable
 fun ProductDetailsScreen(
     id: Int,
+    navController: NavController,
     viewModel: ProductDetailsViewModel = viewModel { ProductDetailsViewModel() }
 ) {
-
-    val controller = LocalRootController.current
     val coroutineScope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
 
@@ -62,7 +61,7 @@ fun ProductDetailsScreen(
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null,
-                        onClick = { controller.popBackStack() }
+                        onClick = { navController.popBackStack() }
                     ),
                 imageVector = Icons.AutoMirrored.Default.KeyboardArrowLeft,
                 contentDescription = null,

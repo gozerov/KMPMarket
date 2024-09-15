@@ -69,8 +69,6 @@ kotlin {
                 implementation(libs.coil.mp)
                 implementation(libs.coil.network.ktor)
                 implementation(libs.coil.compose)
-                implementation(libs.odyssey.core)
-                implementation(libs.odyssey.compose)
 
                 implementation(libs.kodein)
 

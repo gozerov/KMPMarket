@@ -6,10 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import io.github.alexzhirkevich.cupertino.theme.CupertinoTheme
-import navigation.navigationGraph
-import ru.alexgladkov.odyssey.compose.setup.OdysseyConfiguration
-import ru.alexgladkov.odyssey.compose.setup.setNavigationContent
-import ru.alexgladkov.odyssey.core.configuration.DisplayType
+import navigation.KMPMarketApp
 import theme.KMPMarketTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,15 +16,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             KMPMarketTheme {
                 CupertinoTheme {
-                    val configuration = OdysseyConfiguration(
-                        canvas = this,
-                        displayType = DisplayType.EdgeToEdge,
-                        backgroundColor = KMPMarketTheme.colors.primaryBackground
-                    )
-
-                    setNavigationContent(configuration) {
-                        navigationGraph()
-                    }
+                    KMPMarketApp()
                 }
             }
         }

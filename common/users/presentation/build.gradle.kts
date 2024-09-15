@@ -19,14 +19,13 @@ kotlin {
 
                 implementation(compose.runtime)
 
-                implementation(libs.odyssey.core)
-                implementation(libs.odyssey.compose)
-
                 implementation(libs.cupertino)
                 implementation(libs.cupertino.adaptive)
                 implementation(libs.cupertino.native)
 
                 implementation(libs.viewmodel)
+
+                implementation(libs.navigation)
 
                 implementation(libs.libres.compose)
                 implementation(libs.coil.compose)

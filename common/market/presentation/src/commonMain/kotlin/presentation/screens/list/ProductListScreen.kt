@@ -14,13 +14,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import domain.navigation.MarketNavigation
 import kotlinx.coroutines.launch
+import navigation.LocalNavHost
+import navigation.Screen
 import presentation.screens.list.models.ProductListAction
 import presentation.screens.list.models.ProductListEvent
 import presentation.screens.list.views.ProductCard
-import ru.alexgladkov.odyssey.compose.extensions.push
-import ru.alexgladkov.odyssey.compose.local.LocalRootController
 import ru.gozerov.kmpmarket.market.presentation.strings.MarketResStrings
 import theme.KMPMarketTheme
 
@@ -29,10 +28,10 @@ fun ProductListScreen(
     viewModel: ProductListViewModel = viewModel { ProductListViewModel() }
 ) {
 
-    val parentController = LocalRootController.current.parentRootController?.parentRootController
     val coroutineScope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
 
+    val parentController = LocalNavHost.current
 
     val viewState = viewModel.viewStates().collectAsState().value
     val viewAction = viewModel.viewActions().collectAsState(null).value
@@ -76,10 +75,7 @@ fun ProductListScreen(
             ) {
                 items(viewState.products.size) { ind ->
                     ProductCard(viewState.products[ind]) {
-                        parentController?.push(
-                            MarketNavigation.FLOW,
-                            viewState.products[ind].id
-                        )
+                        parentController.navigate("${Screen.Market.ProductDetails.route}/${viewState.products[ind].id}")
                     }
                 }
             }

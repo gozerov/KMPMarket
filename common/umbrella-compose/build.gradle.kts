@@ -28,13 +28,13 @@ kotlin {
 
 
                 implementation(libs.kodein)
-                implementation(libs.odyssey.core)
-                implementation(libs.odyssey.compose)
 
                 implementation(compose.ui)
                 implementation(compose.components.resources)
 
                 implementation(libs.viewmodel)
+
+                implementation(libs.navigation)
             }
         }
         androidMain {

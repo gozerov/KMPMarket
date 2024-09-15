@@ -1,28 +1,42 @@
 package navigation
 
-import navigation.bottom_bar.BottomConfiguration
-import navigation.bottom_bar.BottomTab
-import presentation.navigation.marketFlow
-import presentation.screens.list.ProductListScreen
-import presentation.screens.list.UserListScreen
-import ru.alexgladkov.odyssey.compose.extensions.bottomNavigation
-import ru.alexgladkov.odyssey.compose.extensions.screen
-import ru.alexgladkov.odyssey.compose.extensions.tab
-import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import navigation.bottom_bar.MainScreen
+import presentation.navigation.authFlow
+import presentation.screens.details.ProductDetailsScreen
 
-fun RootComposeBuilder.navigationGraph() {
-    //authFlow()
-    bottomNavigation(Screen.Tabs.route, BottomConfiguration()) {
-        tab(tabItem = BottomTab.MarketTab) {
-            screen(Screen.Market.ProductList.route) {
-                ProductListScreen()
+@Composable
+fun KMPMarketApp() {
+    val navController: NavHostController = rememberNavController()
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentScreen = backStackEntry?.destination?.route ?: Screen.Tabs.route
+
+    CompositionLocalProvider(
+        LocalNavHost provides navController
+    ) {
+        NavHost(
+            navController = navController,
+            startDestination = Screen.Tabs.route
+        ) {
+            authFlow(navController = navController)
+
+            composable(route = Screen.Tabs.route) {
+                MainScreen()
             }
-        }
-        tab(tabItem = BottomTab.UsersTab) {
-            screen(Screen.Users.UserList.route) {
-                UserListScreen()
+
+            composable(route = "${Screen.Market.ProductDetails.route}/{id}") { entry ->
+                ProductDetailsScreen(
+                    id = entry.arguments?.getString("id")?.toInt() ?: 0,
+                    navController = navController
+                )
             }
         }
     }
-    marketFlow()
 }

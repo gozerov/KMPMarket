@@ -12,20 +12,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import kotlinx.coroutines.launch
+import navigation.LocalNavHost
 import navigation.Screen
 import presentation.screens.register.models.RegisterAction
 import presentation.screens.register.models.RegisterEvent
-import ru.alexgladkov.odyssey.compose.local.LocalRootController
 import ru.gozerov.kmpmarket.auth.presentation.strings.AuthResStrings
 import theme.KMPMarketTheme
 
 @Composable
 fun RegisterScreen(
+    navController: NavController,
     viewModel: RegisterViewModel = viewModel { RegisterViewModel() }
 ) {
-    val controller = LocalRootController.current
-    val parentController = LocalRootController.current.parentRootController
+    val parentController = LocalNavHost.current
 
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
@@ -35,7 +36,7 @@ fun RegisterScreen(
 
     when (viewAction) {
         is RegisterAction.PerformNavigationToTabs -> {
-            parentController?.launch(Screen.Tabs.route)
+            parentController.navigate(Screen.Tabs.route)
         }
 
         is RegisterAction.ShowError -> {

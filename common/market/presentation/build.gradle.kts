@@ -19,9 +19,6 @@ kotlin {
 
                 implementation(compose.runtime)
 
-                implementation(libs.odyssey.core)
-                implementation(libs.odyssey.compose)
-
                 implementation(libs.cupertino)
                 implementation(libs.cupertino.adaptive)
                 implementation(libs.cupertino.native)
@@ -33,6 +30,8 @@ kotlin {
                 implementation(libs.coil.compose.core)
                 implementation(libs.coil.mp)
                 implementation(libs.coil.network.ktor)
+
+                implementation(libs.navigation)
             }
         }
     }

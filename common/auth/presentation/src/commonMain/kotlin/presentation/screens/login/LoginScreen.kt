@@ -14,21 +14,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import kotlinx.coroutines.launch
+import navigation.LocalNavHost
 import navigation.Screen
 import presentation.screens.login.models.LoginAction
 import presentation.screens.login.models.LoginEvent
-import ru.alexgladkov.odyssey.compose.extensions.push
-import ru.alexgladkov.odyssey.compose.local.LocalRootController
 import ru.gozerov.kmpmarket.auth.presentation.strings.AuthResStrings
 import theme.KMPMarketTheme
 
 @Composable
 fun LoginScreen(
-    viewModel: LoginViewModel = viewModel { LoginViewModel() }
+    viewModel: LoginViewModel = viewModel { LoginViewModel() },
+    navController: NavController
 ) {
-    val controller = LocalRootController.current
-    val parentController = LocalRootController.current.parentRootController
+    val parentController = LocalNavHost.current
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
 
@@ -38,7 +38,7 @@ fun LoginScreen(
     when (viewAction) {
         is LoginAction.PerformNavigationToRegister -> {}
         is LoginAction.PerformNavigationToFeature -> {
-            parentController?.launch(Screen.Tabs.route)
+            parentController.navigate(Screen.Tabs.route)
         }
 
         is LoginAction.ShowError -> {
@@ -114,7 +114,7 @@ fun LoginScreen(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = null
                 ) {
-                    controller.push(Screen.Login.Register.route)
+                    navController.navigate(Screen.Login.Register.route)
                 },
                 text = AuthResStrings.sign_up,
                 color = KMPMarketTheme.colors.accent,
